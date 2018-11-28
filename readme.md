@@ -1,6 +1,6 @@
 # PotPlayer 绿色版一键下载、制作、更新工具
 # 请在 [Release](https://github.com/neatgz/PotPlayer_OneKey_Tool/releases) 页面下载最新版
-主要功能
+## 主要功能
 * 下载最新 PotPlayer （可选x86 x64）
 * 下载最新附加的编解码器 （可选x86 x64）
 * 生成绿色版 PotPlayer 压缩包（可选x86 x64，包含附加的编解码器）
@@ -12,16 +12,16 @@
 * 可选是否自动检查更新
 * 可选是否保留官方exe安装包以作备用
 
-支持自定义
+## 支持自定义
 * 拷贝喜欢的皮肤文件到 Data\Skins 文件夹下，可以在制作绿色版时自动集成
 * 拷贝喜欢的电视直播源到 Data\Playlist 文件夹下，可以在制作绿色版时自动集成
 * 如需自定义设置，可修改 Data\Config 文件夹下的 ini 文件，可以在制作绿色版时自动集成
 
-使用方法
+## 使用方法
 * GitHub [release](https://github.com/neatgz/PotPlayer_OneKey_Tool/releases) 页面下载
 * 解压，双击 OneKey_Tool.bat 即可
 
-to do list
+## to do list
 + 关于附加 LAVFilters madVR XySubFilter
     - madVR 的下载地址，速度极慢，需要代理，可以手动填写代理或设置全局代理，待完善
     - 因批处理的局限，貌似无法自动检查并获取最新的 LAVFilters 和 XySubFilter 的下载地址，有知道的朋友请告知
@@ -30,6 +30,7 @@ to do list
 + 关于集成 update tool，目前只支持 x64 with all OpenCodec，其他版本待添加
 
 
-其他说明
+## 其他说明
 * 批处理写的很简陋，纯自用。没啥技术含量，随便拿去改拿去用。
 * 所有涉及的工具和软件(Potplayer、wget、7zip)的版权归原作者所有。
+* 如有问题，随时欢迎提交 issue
