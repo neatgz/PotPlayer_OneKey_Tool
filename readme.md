@@ -1,5 +1,5 @@
 # PotPlayer 绿色版一键下载、制作、更新工具
-
+# 请在 [Release](https://github.com/neatgz/PotPlayer_OneKey_Tool/releases) 页面下载最新版
 主要功能
 * 下载最新 PotPlayer （可选x86 x64）
 * 下载最新附加的编解码器 （可选x86 x64）
