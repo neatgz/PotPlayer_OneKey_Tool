@@ -2,33 +2,33 @@
 mode con cols=100 lines=30
 color 0b
 title PotPlayer Portable OneKey Tool
-echo PotPlayer ÂÌÉ«±ãĞ¯°æÒ»¼üÖÆ×÷¹¤¾ß v2.0.0
+echo PotPlayer ç»¿è‰²ä¾¿æºç‰ˆä¸€é”®åˆ¶ä½œå·¥å…· v2.0.0
 echo ===============================================================================
-echo ±¾¹¤¾ßÓÃÓÚÒ»¼üÏÂÔØ¡¢ÖÆ×÷¡¢¸üĞÂ PotPlayer ÂÌÉ«°æ¡£Çë°´ÕÕËµÃ÷²Ù×÷¡£
+echo æœ¬å·¥å…·ç”¨äºä¸€é”®ä¸‹è½½ã€åˆ¶ä½œã€æ›´æ–° PotPlayer ç»¿è‰²ç‰ˆã€‚è¯·æŒ‰ç…§è¯´æ˜æ“ä½œã€‚
 echo ===============================================================================
-echo ÇëÑ¡ÔñÒªÖÆ×÷µÄ°æ±¾£º
-echo 1.PotPlayer ÂÌÉ«°æ 64Î»
-echo 2.PotPlayer ÂÌÉ«°æ 32Î»
+echo è¯·é€‰æ‹©è¦åˆ¶ä½œçš„ç‰ˆæœ¬ï¼š
+echo 1.PotPlayer ç»¿è‰²ç‰ˆ 64ä½
+echo 2.PotPlayer ç»¿è‰²ç‰ˆ 32ä½
 echo ===============================================================================
 :choice0
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto x86
 if /i %choice%==1 goto x64
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice0
 :x64
-:: ´Ó¹ÙÍøÏÂÔØ°²×°°ü
+:: ä»å®˜ç½‘ä¸‹è½½å®‰è£…åŒ…
 cd /d %~dp0
-:: ¿ÉÑ¡ÏÂÔØµØÖ·
+:: å¯é€‰ä¸‹è½½åœ°å€
 wget.exe -N --no-check-certificate https://t1.daumcdn.net/potplayer/PotPlayer/Version/Latest/PotPlayerSetup64.exe
 :: wget.exe -N --no-check-certificate https://get.daum.net/PotPlayer64/Version/Latest/PotPlayerSetup64.exe
-:: »ñÈ¡ PotPlayer °æ±¾ºÅ²¢´´½¨ÎÄ¼ş¼Ğ
+:: è·å– PotPlayer ç‰ˆæœ¬å·å¹¶åˆ›å»ºæ–‡ä»¶å¤¹
 set batPath =%~dp0
 for /f "skip=1 tokens=2 delims==" %%i in (
   'wmic datafile where "name='%batPath :\=\\%PotPlayerSetup64.exe'" get Version /format:list'
 ) do for /f "delims=" %%v in ("%%i") do set "version=%%v"
 mkdir PotPlayer_%version%
-:: ½âÑ¹ÖÆ×÷64Î»°æ Potplayer
+:: è§£å‹åˆ¶ä½œ64ä½ç‰ˆ Potplayer
 7z.exe x PotPlayerSetup64.exe -o.\PotPlayer64 -y
 cd PotPlayer64
 rd /s /q $0
@@ -69,17 +69,17 @@ cd ..
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡Ôñ¸½¼ÓµÄ±à½âÂëÆ÷ÀàĞÍ£º
-echo 1.¸½¼Ó FFmpegMininum (Õ¼ÓÃ¿Õ¼ä½ÏĞ¡)
-echo 2.¸½¼ÓÍêÕûµÄ OpenCodec (Õ¼ÓÃ¿Õ¼ä½Ï´ó)
-echo 3.¡¾´ËÏîÔİÊ±ÎŞĞ§¡¿¸½¼Ó LAVFilters madVR XySubFilter (ÒòĞè´ò¿ªPotPlayerÊÖ¶¯ÅäÖÃ£¬Ñ°ÕÒ½â¾ö°ì·¨ÖĞ)
+echo è¯·é€‰æ‹©é™„åŠ çš„ç¼–è§£ç å™¨ç±»å‹ï¼š
+echo 1.é™„åŠ  FFmpegMininum (å ç”¨ç©ºé—´è¾ƒå°)
+echo 2.é™„åŠ å®Œæ•´çš„ OpenCodec (å ç”¨ç©ºé—´è¾ƒå¤§)
+echo 3.ã€æ­¤é¡¹æš‚æ—¶æ— æ•ˆã€‘é™„åŠ  LAVFilters madVR XySubFilter (å› éœ€æ‰“å¼€PotPlayeræ‰‹åŠ¨é…ç½®ï¼Œå¯»æ‰¾è§£å†³åŠæ³•ä¸­)
 echo ===============================================================================
 :choice11
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 :: if /i %choice%==3 goto madVR
 if /i %choice%==2 goto OpenCodec
 if /i %choice%==1 goto FFmpegMininum
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice11
 :FFmpegMininum
 wget.exe -N --no-check-certificate https://get.daum.net/PotPlayer64/v4/Module/FFmpeg/FFmpegMininum64.dll
@@ -94,15 +94,15 @@ rd /s /q OpenCodecSetup64
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ±£Áô OpenCodecSetup64.exe ÒÔ×÷±¸ÓÃ£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦ä¿ç•™ OpenCodecSetup64.exe ä»¥ä½œå¤‡ç”¨ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice17
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto keepOpenCodecsetupN
 if /i %choice%==1 goto keepOpenCodecsetupY
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice17
 :keepOpenCodecsetupY
 move OpenCodecSetup64.exe PotPlayer_%version%
@@ -111,20 +111,20 @@ goto tag11
 del /f OpenCodecSetup64.exe
 goto tag11
 :madVR
-:: Ôİ¿Õ£¬ÒòĞè´ò¿ªPotPlayerÊÖ¶¯ÅäÖÃ£¬Ñ°ÕÒ½â¾ö°ì·¨ÖĞ¡£
+:: æš‚ç©ºï¼Œå› éœ€æ‰“å¼€PotPlayeræ‰‹åŠ¨é…ç½®ï¼Œå¯»æ‰¾è§£å†³åŠæ³•ä¸­ã€‚
 :tag11
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ¸½¼ÓÆ¤·ôÎÄ¼ş£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦é™„åŠ çš®è‚¤æ–‡ä»¶ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice12
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto SkinsN
 if /i %choice%==1 goto SkinsY
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice12
 :SkinsY
 xcopy /s /i /y .\Data\Skins .\PotPlayer64\Skins
@@ -135,15 +135,15 @@ goto tag12
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ¸½¼ÓTVÖ±²¥Ô´(ÓÃÓÚ¹Û¿´µçÊÓÖ±²¥)£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦é™„åŠ TVç›´æ’­æº(ç”¨äºè§‚çœ‹ç”µè§†ç›´æ’­)ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice13
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto TVlistN
 if /i %choice%==1 goto TVlistY
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice13
 :TVlistY
 xcopy /s /i /y .\Data\Playlist .\PotPlayer64\Playlist
@@ -154,19 +154,19 @@ goto tag13
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ¸½¼Ó Update_Tool µ½ PotPlayer ÎÄ¼ş¼ĞÏÂ¡£
-echo ÓÃÓÚÒ»¼ü¸üĞÂ PotPlayer µ½×îĞÂÎÈ¶¨°æ£¬²¢±£ÁôÉèÖÃ¡£
-echo Çë×¢Òâ£¡´ËÏîÔİÊ±½öÊÊÓÃÓÚ PotPlayer x64 with all OpenCodec£¡ÆäËüÇé¿öÇëÑ¡·ñ¡£
+echo é™„åŠ  Update_Tool åˆ° PotPlayer æ–‡ä»¶å¤¹ä¸‹ã€‚
+echo ç”¨äºä¸€é”®æ›´æ–° PotPlayer åˆ°æœ€æ–°ç¨³å®šç‰ˆï¼Œå¹¶ä¿ç•™è®¾ç½®ã€‚
+echo è¯·æ³¨æ„ï¼æ­¤é¡¹æš‚æ—¶ä»…é€‚ç”¨äº PotPlayer x64 with all OpenCodecï¼å…¶å®ƒæƒ…å†µè¯·é€‰å¦ã€‚
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ¸½¼Ó Update Tool£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦é™„åŠ  Update Toolï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice14
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto updatetoolN
 if /i %choice%==1 goto updatetoolY
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice14
 :updatetoolY
 cd PotPlayer64
@@ -182,15 +182,15 @@ goto tag14
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ¿ªÆô×Ô¶¯¼ì²é¸üĞÂ(´ËÏîÖ»ÊÇ×Ô¶¯¼ì²é¸üĞÂµÄ¿ª¹Ø£¬²»»á×Ô¶¯ÏÂÔØ£¬Çë·ÅĞÄ¿ªÆô)£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦å¼€å¯è‡ªåŠ¨æ£€æŸ¥æ›´æ–°(æ­¤é¡¹åªæ˜¯è‡ªåŠ¨æ£€æŸ¥æ›´æ–°çš„å¼€å…³ï¼Œä¸ä¼šè‡ªåŠ¨ä¸‹è½½ï¼Œè¯·æ”¾å¿ƒå¼€å¯)ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice15
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto checkupdateN
 if /i %choice%==1 goto checkupdateY
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice15
 :checkupdateY
 copy .\Data\Config\PotPlayerMini64_AutoCheckUpdate.ini .\PotPlayer64\
@@ -207,15 +207,15 @@ rd /s /q PotPlayer64
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ±£Áô PotPlayerSetup64.exe ÒÔ×÷±¸ÓÃ£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦ä¿ç•™ PotPlayerSetup64.exe ä»¥ä½œå¤‡ç”¨ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice16
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto keepsetupN
 if /i %choice%==1 goto keepsetupY
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice16
 :keepsetupY
 rename PotPlayerSetup64.exe PotPlayerSetup64_%version%_Public.exe
@@ -228,20 +228,45 @@ goto tag16
 goto end1
 
 :x86
-:: ´Ó¹ÙÍøÏÂÔØ°²×°°ü
+cls
+title PotPlayer Portable OneKey Tool
+echo ===============================================================================
+echo è¯·é€‰æ‹© Public ç‰ˆæˆ–è€… Dev ç‰ˆ(ä»…é™x86)ï¼š
+echo 1.Public ç‰ˆ
+echo 2.Dev ç‰ˆ
+echo ===============================================================================
+:choice29
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
+if /i %choice%==2 goto devY_x86
+if /i %choice%==1 goto publicY_x86
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
+goto choice29
+:publicY_x86
+set ver=Public
+:: ä»å®˜ç½‘ä¸‹è½½å®‰è£…åŒ…
 cd /d %~dp0
-:: ¿ÉÑ¡ÏÂÔØµØÖ·
+:: å¯é€‰ä¸‹è½½åœ°å€
 wget.exe -N --no-check-certificate https://t1.daumcdn.net/potplayer/PotPlayer/Version/Latest/PotPlayerSetup.exe
 :: wget.exe -N --no-check-certificate https://get.daum.net/PotPlayer/Version/Latest/PotPlayerSetup.exe
-:: »ñÈ¡ PotPlayer °æ±¾ºÅ²¢´´½¨ÎÄ¼ş¼Ğ
+goto tag29
+:devY_x86
+set ver=Dev
+:: ä»å®˜ç½‘ä¸‹è½½å®‰è£…åŒ…
+cd /d %~dp0
+:: ä¸‹è½½åœ°å€
+wget.exe -N --no-check-certificate https://t1.daumcdn.net/potplayer/beta/PotPlayerSetup.exe
+goto tag29
+
+:tag29
+:: è·å– PotPlayer ç‰ˆæœ¬å·å¹¶åˆ›å»ºæ–‡ä»¶å¤¹
 set batPath =%~dp0
 for /f "skip=1 tokens=2 delims==" %%i in (
   'wmic datafile where "name='%batPath :\=\\%PotPlayerSetup.exe'" get Version /format:list'
 ) do for /f "delims=" %%v in ("%%i") do set "version=%%v"
 mkdir PotPlayer_%version%
-:: ½âÑ¹32Î»°æ Potplayer
+:: è§£å‹32ä½ç‰ˆ Potplayer
 7z.exe x PotPlayerSetup.exe -o.\PotPlayer -y
-:: ¾«¼òÎÄ¼ş
+:: ç²¾ç®€æ–‡ä»¶
 cd PotPlayer
 rd /s /q $0
 rd /s /q $PLUGINSDIR
@@ -278,15 +303,15 @@ del /f uninstall.exe.nsis
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ±£Áô XP ÏµÍ³µÄÖ§³ÖÎÄ¼şÒÔ×÷±¸ÓÃ£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦ä¿ç•™ XP ç³»ç»Ÿçš„æ”¯æŒæ–‡ä»¶ä»¥ä½œå¤‡ç”¨ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice28
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto xpN
 if /i %choice%==1 goto xpY
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice28
 :xpY
 md For_WinXP_User
@@ -304,17 +329,17 @@ cd ..
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡Ôñ¸½¼ÓµÄ±à½âÂëÆ÷ÀàĞÍ£º
-echo 1.¸½¼Ó FFmpegMininum (Õ¼ÓÃ¿Õ¼ä½ÏĞ¡)
-echo 2.¸½¼ÓÍêÕûµÄ OpenCodec (Õ¼ÓÃ¿Õ¼ä½Ï´ó)
-echo 3.¡¾´ËÏîÔİÊ±ÎŞĞ§¡¿¸½¼Ó LAVFilters madVR XySubFilter (ÒòĞè´ò¿ªPotPlayerÊÖ¶¯ÅäÖÃ£¬Ñ°ÕÒ½â¾ö°ì·¨ÖĞ)
+echo è¯·é€‰æ‹©é™„åŠ çš„ç¼–è§£ç å™¨ç±»å‹ï¼š
+echo 1.é™„åŠ  FFmpegMininum (å ç”¨ç©ºé—´è¾ƒå°)
+echo 2.é™„åŠ å®Œæ•´çš„ OpenCodec (å ç”¨ç©ºé—´è¾ƒå¤§)
+echo 3.ã€æ­¤é¡¹æš‚æ—¶æ— æ•ˆã€‘é™„åŠ  LAVFilters madVR XySubFilter (å› éœ€æ‰“å¼€PotPlayeræ‰‹åŠ¨é…ç½®ï¼Œå¯»æ‰¾è§£å†³åŠæ³•ä¸­)
 echo ===============================================================================
 :choice21
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 :: if /i %choice%==3 goto madVR_x86
 if /i %choice%==2 goto OpenCodec_x86
 if /i %choice%==1 goto FFmpegMininum_x86
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice21
 :FFmpegMininum_x86
 wget.exe -N --no-check-certificate https://get.daum.net/PotPlayer/v4/Module/FFmpeg/FFmpegMininum.dll
@@ -329,15 +354,15 @@ rd /s /q OpenCodecSetup
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ±£Áô OpenCodecSetup.exe ÒÔ×÷±¸ÓÃ£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦ä¿ç•™ OpenCodecSetup.exe ä»¥ä½œå¤‡ç”¨ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice27
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto keepOpenCodecsetupN_x86
 if /i %choice%==1 goto keepOpenCodecsetupY_x86
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice27
 :keepOpenCodecsetupY_x86
 move OpenCodecSetup.exe PotPlayer_%version%
@@ -346,20 +371,20 @@ goto tag21
 del /f OpenCodecSetup.exe
 goto tag21
 :madVR_x86
-:: Ôİ¿Õ£¬ÒòĞè´ò¿ªPotPlayerÊÖ¶¯ÅäÖÃ£¬Ñ°ÕÒ½â¾ö°ì·¨ÖĞ¡£
+:: æš‚ç©ºï¼Œå› éœ€æ‰“å¼€PotPlayeræ‰‹åŠ¨é…ç½®ï¼Œå¯»æ‰¾è§£å†³åŠæ³•ä¸­ã€‚
 :tag21
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ¸½¼ÓÆ¤·ôÎÄ¼ş£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦é™„åŠ çš®è‚¤æ–‡ä»¶ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice22
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto SkinsN_x86
 if /i %choice%==1 goto SkinsY_x86
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice22
 :SkinsY_x86
 xcopy /s /i /y .\Data\Skins .\PotPlayer\Skins
@@ -370,15 +395,15 @@ goto tag22
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ¸½¼ÓTVÖ±²¥Ô´(ÓÃÓÚ¹Û¿´µçÊÓÖ±²¥)£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦é™„åŠ TVç›´æ’­æº(ç”¨äºè§‚çœ‹ç”µè§†ç›´æ’­)ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice23
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto TVlistN_x86
 if /i %choice%==1 goto TVlistY_x86
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice23
 :TVlistY_x86
 xcopy /s /i /y .\Data\Playlist .\PotPlayer\Playlist
@@ -386,20 +411,20 @@ goto tag23
 :TVlistN_x86
 goto tag23
 :tag23
-:: ÔİÊ±Áô¿Õ£¬ÓÃÓÚ¼¯³É update tool x86
+:: æš‚æ—¶ç•™ç©ºï¼Œç”¨äºé›†æˆ update tool x86
 :tag24
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ¿ªÆô×Ô¶¯¼ì²é¸üĞÂ(´ËÏîÖ»ÊÇ×Ô¶¯¼ì²é¸üĞÂµÄ¿ª¹Ø£¬²»»á×Ô¶¯ÏÂÔØ£¬Çë·ÅĞÄ¿ªÆô)£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦å¼€å¯è‡ªåŠ¨æ£€æŸ¥æ›´æ–°(æ­¤é¡¹åªæ˜¯è‡ªåŠ¨æ£€æŸ¥æ›´æ–°çš„å¼€å…³ï¼Œä¸ä¼šè‡ªåŠ¨ä¸‹è½½ï¼Œè¯·æ”¾å¿ƒå¼€å¯)ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice25
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto checkupdateN_x86
 if /i %choice%==1 goto checkupdateY_x86
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice25
 :checkupdateY_x86
 copy .\Data\Config\PotPlayerMini64_AutoCheckUpdate.ini .\PotPlayer\
@@ -411,25 +436,25 @@ rename .\PotPlayer\PotPlayerMini64.ini PotPlayerMini.ini
 goto tag25
 :tag25
 7z a PotPlayer.7z PotPlayer\
-rename PotPlayer.7z PotPlayer_%version%_Public.7z
-move PotPlayer_%version%_Public.7z PotPlayer_%version%
+rename PotPlayer.7z PotPlayer_%version%_%ver%.7z
+move PotPlayer_%version%_%ver%.7z PotPlayer_%version%
 rd /s /q PotPlayer
 cls
 title PotPlayer Portable OneKey Tool
 echo ===============================================================================
-echo ÇëÑ¡ÔñÊÇ·ñ±£Áô PotPlayerSetup.exe ÒÔ×÷±¸ÓÃ£º
-echo 1.ÊÇ
-echo 2.·ñ
+echo è¯·é€‰æ‹©æ˜¯å¦ä¿ç•™ PotPlayerSetup.exe ä»¥ä½œå¤‡ç”¨ï¼š
+echo 1.æ˜¯
+echo 2.å¦
 echo ===============================================================================
 :choice26
-set /p choice=Çë¼üÈë¶ÔÓ¦Ñ¡ÏîÇ°µÄÊı×Ö£¬²¢°´»Ø³µ£º
+set /p choice=è¯·é”®å…¥å¯¹åº”é€‰é¡¹å‰çš„æ•°å­—ï¼Œå¹¶æŒ‰å›è½¦ï¼š
 if /i %choice%==2 goto keepsetupN_x86
 if /i %choice%==1 goto keepsetupY_x86
-echo ÊäÈëÎŞĞ§£¬ÇëÖØĞÂÊäÈë£¡
+echo è¾“å…¥æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼
 goto choice26
 :keepsetupY_x86
-rename PotPlayerSetup.exe PotPlayerSetup_%version%_Public.exe
-move PotPlayerSetup_%version%_Public.exe PotPlayer_%version%
+rename PotPlayerSetup.exe PotPlayerSetup_%version%_%ver%.exe
+move PotPlayerSetup_%version%_%ver%.exe PotPlayer_%version%
 goto tag26
 :keepsetupN_x86
 del /f PotPlayerSetup.exe
@@ -440,9 +465,9 @@ goto end1
 :end1
 cls
 echo ===============================================================================
-echo PotPlayer ÂÌÉ«°æ ÖÆ×÷Íê³É¡£
+echo PotPlayer ç»¿è‰²ç‰ˆ åˆ¶ä½œå®Œæˆã€‚
 echo ===============================================================================
-echo Éú³ÉµÄÎÄ¼şÎ»ÓÚ¡¾PotPlayer_%version%¡¿ÎÄ¼ş¼ĞÏÂ¡£
+echo ç”Ÿæˆçš„æ–‡ä»¶ä½äºã€PotPlayer_%version%ã€‘æ–‡ä»¶å¤¹ä¸‹ã€‚
 echo ===============================================================================
 goto end
 :end
