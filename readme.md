@@ -2,6 +2,7 @@
 # 请在 [Release](https://github.com/neatgz/PotPlayer_OneKey_Tool/releases) 页面下载最新版
 ## 主要功能
 * 下载最新 PotPlayer （可选x86 x64）
+* 可选 Public 或 Dev 版（仅限x86，因官方只提供x86的Dev）
 * 下载最新附加的编解码器 （可选x86 x64）
 * 生成绿色版 PotPlayer 压缩包（可选x86 x64，包含附加的编解码器）
 * 可选是否附加 WinXP 支持 （仅限x86）
