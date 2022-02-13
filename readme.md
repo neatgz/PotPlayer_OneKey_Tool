@@ -1,4 +1,4 @@
-# 本人已换用 mpv ，停止维护，其实本工具就是简单的批处理，没什么技术含量，自行去网上学习一下批处理，自行修改即可。
+# 本人已换用 [mpv](https://mpv.io/) ，停止维护，其实本工具就是简单的批处理，没什么技术含量，自行去网上学习一下批处理，自行修改即可。
 # PotPlayer 绿色版一键下载、制作、更新工具
 # 请在 [Release](https://github.com/neatgz/PotPlayer_OneKey_Tool/releases) 页面下载最新版
 ## 主要功能
