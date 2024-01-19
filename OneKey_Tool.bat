@@ -4,7 +4,7 @@
 mode con cols=100 lines=30
 color 0b
 title PotPlayer Portable OneKey Tool
-echo PotPlayer 绿色便携版一键制作工具 v3.5.0
+echo PotPlayer 绿色便携版一键制作工具 v3.5.1
 echo ===============================================================================
 echo 主要功能：
 echo * 下载、精简、制作、更新 PotPlayer 绿色版（可选 x86 x64）
@@ -325,7 +325,8 @@ aria2c.exe --split=15 --max-connection-per-server=15 %proxy_parameter_aria2%%LAV
 7z.exe x LAVFilters-%LAVversion%-%platformA%.zip -o.\LAVFilters -y
 xcopy /s /i /y .\LAVFilters .\PotPlayer%platform%\Module\LAVFilters
 rd /s /q LAVFilters
-del /f LAVFilters-%LAVversion%-%platformA%.zip
+:: del /f LAVFilters-%LAVversion%-%platformA%.zip
+move LAVFilters-%LAVversion%-%platformA%.zip PotPlayer_%version%_%ver%
 :: madVR
 if %downloadtool%==aria2 (goto tag_down_madVR_aria2)
 wget.exe -N --no-check-certificate %proxy_parameter_wget_http%%madVRurl%
@@ -334,9 +335,10 @@ goto tag_down_madVR_over
 aria2c.exe --split=15 --max-connection-per-server=15 %proxy_parameter_aria2%%madVRurl%
 :tag_down_madVR_over
 7z.exe x madVR.zip -o.\madVR -y
-xcopy /s /i /y .\madVR .\PotPlayer%platform%\Module\madVR
+xcopy /s /i /y .\madVR .\PotPlayer%platform%\Module
 rd /s /q madVR
-del /f madVR.zip
+:: del /f madVR.zip
+move madVR.zip PotPlayer_%version%_%ver%
 :: XySubFilter
 if %downloadtool%==aria2 (goto tag_down_XySubFilter_aria2)
 wget.exe -N --no-check-certificate %proxy_parameter_wget_https%%XySubFilterURL%
@@ -347,7 +349,8 @@ aria2c.exe --split=15 --max-connection-per-server=15 %proxy_parameter_aria2%%XyS
 7z.exe x XySubFilter_%XySubversion%_%platformA%.zip -o.\XySubFilter -y
 xcopy /s /i /y .\XySubFilter .\PotPlayer%platform%\Module\XySubFilter
 rd /s /q XySubFilter
-del /f XySubFilter_%XySubversion%_%platformA%.zip
+:: del /f XySubFilter_%XySubversion%_%platformA%.zip
+move XySubFilter_%XySubversion%_%platformA%.zip PotPlayer_%version%_%ver%
 goto tag_Module_over
 :: 附加完整的 OpenCodec，占用空间较大
 :tag_all
