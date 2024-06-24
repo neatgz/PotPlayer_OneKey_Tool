@@ -4,20 +4,21 @@ color 0b
 title PotPlayer Portable OneKey Update
 
 echo ===============================================================================
-echo PotPlayer x64 ÂÌÉ«°æ with OpenCodec Ò»¼ü¸üÐÂ¹¤¾ß v2.0.0
+echo PotPlayer x64 ç»¿è‰²ç‰ˆ with OpenCodec ä¸€é”®æ›´æ–°å·¥å…· v2.0.0
+echo è¯·æ³¨æ„ä»…æ”¯æŒ x64 ç¨³å®šç‰ˆçš„æ›´æ–°!
 echo ===============================================================================
-echo ±¾¹¤¾ß»áÒ»¼ü¸üÐÂ PotPlayer µ½×îÐÂ°æ±¾£¬Ê¹ÓÃÇ°Çë¹Ø±Õ PotPlayer¡£
+echo æœ¬å·¥å…·ä¼šä¸€é”®æ›´æ–° PotPlayer åˆ°æœ€æ–°ç‰ˆæœ¬ï¼Œä½¿ç”¨å‰è¯·å…³é—­ PotPlayerã€‚
 echo ===============================================================================
 pause
-:: ´Ó¹ÙÍøÏÂÔØ°²×°°ü
+:: ä»Žå®˜ç½‘ä¸‹è½½å®‰è£…åŒ…
 cd /d %~dp0
 wget.exe -N --no-check-certificate https://t1.daumcdn.net/potplayer/PotPlayer/Version/Latest/PotPlayerSetup64.exe
-:: ¿ÉÑ¡ÏÂÔØµØÖ·
+:: å¯é€‰ä¸‹è½½åœ°å€
 :: wget.exe -N --no-check-certificate https://get.daum.net/PotPlayer64/Version/Latest/PotPlayerSetup64.exe
-wget.exe -N --no-check-certificate https://get.daum.net/PotPlayer/Codec/OpenCodecSetup64.exe
+wget.exe -N --no-check-certificate https://t1.daumcdn.net/potplayer/PotPlayer/Codec/v3/OpenCodecSetup64.exe
 title PotPlayer Portable OneKey Update
 
-:: ½âÑ¹ÖÆ×÷64Î»°æ Potplayer
+:: è§£åŽ‹åˆ¶ä½œ64ä½ç‰ˆ Potplayer
 7z.exe x PotPlayerSetup64.exe -o.\PotPlayer64 -y
 cd PotPlayer64
 rd /s /q $0
@@ -39,7 +40,7 @@ rename History\Korean.bak Korean.txt
 rename Language\Chinese(Simplified).bak Chinese(Simplified).ini
 rename Language\English.bak English.ini
 rename Language\Korean.bak Korean.ini
-md Module\FFmpeg
+md Module\FFmpeg61
 del /f Alarm.wav
 del /f D_Exec64.exe
 del /f DesktopHook64.dll
@@ -65,5 +66,5 @@ del /f OpenCodecSetup64.exe
 rd /s /q PotPlayer64
 rd /s /q OpenCodecSetup64
 
-echo ¸üÐÂÍê³É£¬Çë°´ÈÎÒâ¼üÍË³ö£¡
+echo æ›´æ–°å®Œæˆï¼Œè¯·æŒ‰ä»»æ„é”®é€€å‡ºï¼
 pause>nul
