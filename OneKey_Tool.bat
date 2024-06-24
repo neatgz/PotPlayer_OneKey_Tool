@@ -117,8 +117,8 @@ echo 3.LAVFilters + madVR + XySubFilter + FFmpegMininum
 echo ===============================================================================
 choice  /c 123 /n /m "请输入目标选项前的数字：" /d 1 /t 120
 if %errorlevel%==3 (set Module=madVR& set ModuleName=LAVFilters_madVR_XySubFilter)
-if %errorlevel%==2 (set Module=mini& set ModuleName=FFmpegMininum& set ffmpegminiURL=https://t1.daumcdn.net/potplayer/PotPlayer/Codec/v2/FFmpegMininum%platform%.dll)
-if %errorlevel%==1 (set Module=all& set ModuleName=OpenCodec& set codecEXEurl=https://t1.daumcdn.net/potplayer/PotPlayer/Codec/v2/OpenCodecSetup%platform%.exe)
+if %errorlevel%==2 (set Module=mini& set ModuleName=FFmpegMininum& set ffmpegminiURL=https://t1.daumcdn.net/potplayer/PotPlayer/Codec/v3/FFmpegMininum%platform%.dll)
+if %errorlevel%==1 (set Module=all& set ModuleName=OpenCodec& set codecEXEurl=https://t1.daumcdn.net/potplayer/PotPlayer/Codec/v3/OpenCodecSetup%platform%.exe)
 :: :: 可选 OpenCodec 下载地址 https://get.daum.net/PotPlayer/Codec/OpenCodecSetup%platform%.exe
 :: :: 230327(1.7.21892)开始OpenCodecSetup新链接的子目录由FFmpeg4改为FFmpeg60
 :: :: 旧版 OpenCodec 下载地址 https://t1.daumcdn.net/potplayer/PotPlayer/Codec/v1/OpenCodecSetup%platform%.exe
@@ -160,7 +160,7 @@ echo ===========================================================================
 choice  /c 12 /n /m "请输入目标选项前的数字：" /d 1 /t 120
 if %errorlevel%==2 (set /P LAVversion=请输入 LAVFilters 的版本号，然后按回车，格式为【0.77.1】不含方括号：& set /P XySubversion=请输入 XySubFilter 的版本号，然后按回车，格式为【3.1.0.752】不含方括号：)
 if %errorlevel%==1 (set LAVversion=0.78& set XySubversion=3.1.0.752)
-set ffmpegminiURL=https://t1.daumcdn.net/potplayer/PotPlayer/Codec/v2/FFmpegMininum%platform%.dll
+set ffmpegminiURL=https://t1.daumcdn.net/potplayer/PotPlayer/Codec/v3/FFmpegMininum%platform%.dll
 set LAVFiltersURL=https://github.com/Nevcairiel/LAVFilters/releases/download/%LAVversion%/LAVFilters-%LAVversion%-%platformA%.zip
 set madVRurl=http://madshi.net/madVR.zip
 set XySubFilterURL=https://github.com/Cyberbeing/xy-VSFilter/releases/download/%XySubversion%/XySubFilter_%XySubversion%_%platformA%.zip
